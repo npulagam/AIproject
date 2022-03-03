@@ -5,4 +5,4 @@ pickle-mixin
 scikit-learn
 streamlit
 feature-engine
-DXC-Industrialized-AI-Starter
+xgboost

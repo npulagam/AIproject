@@ -5,4 +5,3 @@ pickle-mixin
 scikit-learn
 streamlit
 feature-engine
-xgboost

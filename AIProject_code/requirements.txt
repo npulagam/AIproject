@@ -6,4 +6,4 @@ scikit-learn
 streamlit
 feature-engine
 DXC-Industrialized-AI-Starter
-jinja2
+Jinja2

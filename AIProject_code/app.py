@@ -12,6 +12,7 @@ from xgboost import XGBRegressor
 # NOTE: Make sure that the outcome column is labeled 'target' in the data file
 tpot_data = pd.read_csv('https://raw.githubusercontent.com/dsuarezferre/AIproject/master/AIProject_code/prepared_data.csv')
 features = tpot_data.drop('target', axis=1)
+features = features.drop('fecha', axis=1)
 training_features, testing_features, training_target, testing_target = \
             train_test_split(features, tpot_data['target'], random_state=None)
 
@@ -40,7 +41,7 @@ st.sidebar.header('User Input Parameters')
 st.subheader('User Input parameters')
 selected_data = dict()
 for column in df.columns:
-    if column != 'target':
+    if column != 'target' or column != 'fecha':
         label = column.replace('_id.','')
         label = label.replace('_',' ').title()
         if df[column].dtype == 'O':
@@ -54,8 +55,8 @@ for column in df.columns:
 test_data = pd.DataFrame(selected_data, index=[0])
 st.write(test_data)
 st.subheader('Prediction')
-if len(encoder_location) > 5:
-    test_data = encoder.transform(test_data) 
+# if len(encoder_location) > 5:
+#     test_data = encoder.transform(test_data) 
 prediction = exported_pipeline.predict(test_data)
 if len(target_encoder_location) > 5:
     prediction = target_encoder.inverse_transform(prediction)

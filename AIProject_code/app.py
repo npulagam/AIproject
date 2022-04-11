@@ -53,6 +53,7 @@ for column in df.columns[1:]:
         
         selected_data[column] = selected_value
 test_data = pd.DataFrame(selected_data, index=[0])
+test_data.columns= test_data.columns.str.lower()
 st.write(test_data)
 st.subheader('Prediction')
 # if len(encoder_location) > 5:

@@ -40,7 +40,7 @@ st.title(title)
 st.sidebar.header('User Input Parameters')
 st.subheader('User Input parameters')
 selected_data = dict()
-for column in df.columns:
+for column in df.columns[1:]:
     if column != 'target' or column != 'fecha':
         label = column.replace('_id.','')
         label = label.replace('_',' ').title()

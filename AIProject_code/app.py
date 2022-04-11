@@ -59,7 +59,7 @@ st.write(features1.head(1))
 st.subheader('Prediction')
 # if len(encoder_location) > 5:
 #     test_data = encoder.transform(test_data) 
-prediction = exported_pipeline.predict(features1.head(1))
+prediction = exported_pipeline.predict(features.head(1))
 if len(target_encoder_location) > 5:
     prediction = target_encoder.inverse_transform(prediction)
 if 'float' in str(type(prediction[0])):

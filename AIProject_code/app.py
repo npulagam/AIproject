@@ -53,13 +53,13 @@ for column in df.columns[1:]:
         
         selected_data[column] = selected_value
 test_data = pd.DataFrame(selected_data, index=[0])
-test_data.columns= test_data.columns.str.lower()
+test_data['fecha']= '2017-01-01T00:00:00+00:00'
 st.write(test_data)
 st.write(features.head(1))
 st.subheader('Prediction')
-# if len(encoder_location) > 5:
-#     test_data = encoder.transform(test_data) 
-prediction = exported_pipeline.predict(features1.head(1))
+if len(encoder_location) > 5:
+    test_data = encoder.transform(test_data) 
+prediction = exported_pipeline.predict(test_data)
 if len(target_encoder_location) > 5:
     prediction = target_encoder.inverse_transform(prediction)
 if 'float' in str(type(prediction[0])):

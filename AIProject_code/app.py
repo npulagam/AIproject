@@ -12,9 +12,9 @@ from xgboost import XGBRegressor
 # NOTE: Make sure that the outcome column is labeled 'target' in the data file
 tpot_data = pd.read_csv('https://raw.githubusercontent.com/dsuarezferre/AIproject/master/AIProject_code/prepared_data.csv')
 features = tpot_data.drop('target', axis=1)
-features = features.drop('fecha', axis=1)
+features1 = features.drop('fecha', axis=1)
 training_features, testing_features, training_target, testing_target = \
-            train_test_split(features, tpot_data['target'], random_state=None)
+            train_test_split(features1, tpot_data['target'], random_state=None)
 
 # Average CV score on the training set was: -398.43026381484333
 exported_pipeline = XGBRegressor(learning_rate=0.1, max_depth=6, min_child_weight=1, n_estimators=100, n_jobs=1, objective="reg:squarederror", subsample=0.45, verbosity=0)
